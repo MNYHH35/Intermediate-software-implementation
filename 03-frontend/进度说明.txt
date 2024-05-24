@@ -9,3 +9,17 @@
 
 2024.5.9 18:34
 看完了第66集
+
+5.18
+数据库 的 id是movie_id的表达
+
+5.20
+可以渲染，但是一页显示9个电影
+
+晚上23：52
+莫名其妙，明明在index文件里用router包裹了app里面的route，npm都可以正常运行，网页就是打不开，报error
+说我没有用router包裹了app里面的route
+
+one second later
+笑死，原来是index文件没保存，刚才想关了index页面，结果问我是否保存
+顿 恍然大悟

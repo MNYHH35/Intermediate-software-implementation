@@ -1,35 +1,165 @@
--- 插入一些电影数据
-INSERT INTO `movie` (`title`, `director`, `description`, `release_year`, `genre`, `actors`, `poster_img`) VALUES
-('The Shawshank Redemption', 'Frank Darabont', 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.', 1994, 'Drama', 'Tim Robbins, Morgan Freeman', NULL),
-('The Godfather', 'Francis Ford Coppola', 'The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.', 1972, 'Crime', 'Marlon Brando, Al Pacino, James Caan', NULL),
-('The Dark Knight', 'Christopher Nolan', 'When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.', 2008, 'Action, Crime, Drama', 'Christian Bale, Heath Ledger, Aaron Eckhart', NULL),
-('Pulp Fiction', 'Quentin Tarantino', 'The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.', 1994, 'Crime, Drama', 'John Travolta, Uma Thurman, Samuel L. Jackson', NULL);
+USE `reactmovieplanetdatabase`;
+SET SQL_SAFE_UPDATES = 0;
 
--- 插入一些用户数据
-INSERT INTO `user` (`email`, `password`, `is_member`) VALUES
-('user1@example.com', 'password1', 1),
-('user2@example.com', 'password2', 0),
-('user3@example.com', 'password3', 1);
+DELETE FROM `movies`;
 
--- 插入一些评论数据
-INSERT INTO `movie_review` (`user_id`, `date`, `rating`, `movie_id`, `review_description`) VALUES
-(1, '2023-01-01 10:00:00', 4.5, 1, 'Great movie, loved the concept and the visuals.'),
-(2, '2023-01-02 12:00:00', 5.0, 2, 'One of the best movies I have ever seen.'),
-(3, '2023-01-03 15:00:00', 4.0, 3, 'Classic film with excellent performances.');
 
--- 插入一些观看记录数据
-INSERT INTO `watch_history` (`user_id`, `movie_id`, `watch_date`, `last_watched_time`) VALUES
-(1, 1, '2023-01-01', '02:30:00'),
-(2, 2, '2023-01-02', '01:15:00'),
-(3, 3, '2023-01-03', '00:45:00');
+INSERT INTO `movies` (`movie_id`, `title`, `description`, `release_date`, `cover_image`, `type`, `region`, `creators`,`vip`, `price`,`stars`) VALUES (
+    100001, 
+    '肖申克的救赎', 
+    '	一场谋杀案使银行家安迪（蒂姆•罗宾斯 Tim Robbins 饰）蒙冤入狱，谋杀妻子及其情人的指控将囚禁他终生。在肖申克监狱的首次现身就让监狱“大哥”瑞德（摩根•弗里曼 Morgan Freeman 饰）对他另眼相看。瑞德帮助他搞到一把石锤和一幅女明星海报，两人渐成患难 之交。很快，安迪在监狱里大显其才，担当监狱图书管理员，并利用自己的金融知识帮助监狱官避税，引起了典狱长的注意，被招致麾下帮助典狱长洗黑钱。偶然一次，他得知一名新入狱的小偷能够作证帮他洗脱谋杀罪。燃起一丝希望的安迪找到了典狱长，希望他能帮自己翻案。阴险伪善的狱长假装答应安迪，背后却派人杀死小偷，让他唯一能合法出狱的希望泯灭。沮丧的安迪并没有绝望，在一个电闪雷鸣的风雨夜，一场暗藏几十年的越狱计划让他自我救赎，重获自由！老朋友瑞德在他的鼓舞和帮助下，也勇敢地奔向自由。本片获得1995年奥斯卡10项提名，以及金球奖、土星奖等多项提名。',
+    '1994-09-10', 
+    '001.jpg', 
+    '剧情 / 犯罪', 
+    '美国', 
+    '导演: 弗兰克·德拉邦特
+编剧: 弗兰克·德拉邦特 / 斯蒂芬·金
+主演: 蒂姆·罗宾斯 / 摩根·弗里曼 / 鲍勃·冈顿',
+    '0',
+    '6',
+    '4.5'
+);
 
--- 插入一些购物车数据
-INSERT INTO `cart` (`user_id`, `movie_id`, `quantity`) VALUES
-(1, 2, 1),
-(1, 3, 2),
-(2, 1, 1);
+INSERT INTO `movies` (`movie_id`, `title`, `description`, `release_date`, `cover_image`, `type`, `region`, `creators`,`vip`, `price`,`stars`) VALUES (
+	100002,
+	'霸王别姬',
+	'	段小楼（张丰毅）与程蝶衣（张国荣）是一对打小一起长大的师兄弟，两人一个演生，一个饰旦，一向配合天衣无缝，尤其一出《霸王别姬》，更是誉满京城，为此，两人约定合演一辈子《霸王别姬》。但两人对戏剧与人生关系的理解有本质不同，段小楼深知戏非人生，程蝶衣则是人戏不分。
+　　段小楼在认为该成家立业之时迎娶了名妓菊仙（巩俐），致使程蝶衣认定菊仙是可耻的第三者，使段小楼做了叛徒，自此，三人围绕一出《霸王别姬》生出的爱恨情仇战开始随着时代风云的变迁不断升级，终酿成悲剧。',
+	'1993-07-26',
+	'002.jpg',
+	'剧情 / 爱情 / 同性',
+	'中国大陆 / 中国香港',
+	'导演: 陈凯歌
+编剧: 芦苇 / 李碧华
+主演: 张国荣 / 张丰毅 / 巩俐 ',
+	'0',
+	'6',
+	'4.5'
+);
 
--- 插入一些购买记录数据
-INSERT INTO `purchase_history` (`user_id`, `movie_id`, `purchase_date`) VALUES
-(1, 2, '2023-01-01 10:30:00'),
-(3, 1, '2023-01-02 12:45:00');
+INSERT INTO `movies` (`movie_id`, `title`, `description`, `release_date`, `cover_image`, `type`, `region`, `creators`,`vip`, `price`,`stars`) VALUES (
+	100003,
+	'阿甘正传',
+	'	阿甘（汤姆·汉克斯 饰）于二战结束后不久出生在美国南方阿拉巴马州一个闭塞的小镇，他先天弱智，智商只有75，然而他的妈妈是一个性格坚强的女性，她常常鼓励阿甘“傻人有傻福”，要他自强不息。
+　　阿甘像普通孩子一样上学，并且认识了一生的朋友和至爱珍妮（罗宾·莱特·潘 饰），在珍妮 和妈妈的爱护下，阿甘凭着上帝赐予的“飞毛腿”开始了一生不停的奔跑。
+　　阿甘成为橄榄球巨星、越战英雄、乒乓球外交使者、亿万富翁，但是，他始终忘不了珍妮，几次匆匆的相聚和离别，更是加深了阿甘的思念。
+　　有一天，阿甘收到珍妮的信，他们终于又要见面……',
+	'1994-06-23',
+	'003.jpg',
+	'剧情 / 爱情',
+	'美国',
+	'导演: 罗伯特·泽米吉斯
+编剧: 埃里克·罗思 / 温斯顿·格鲁姆
+主演: 汤姆·汉克斯 / 罗宾·怀特 / 加里·西尼斯 ',
+	'1',
+	'0',
+	'4'
+);
+
+INSERT INTO `movies` (`movie_id`, `title`, `description`, `release_date`, `cover_image`, `type`, `region`, `creators`,`vip`, `price`,`stars`) VALUES (
+	100004,
+	'泰坦尼克号',
+	'	1912年4月10日，号称 “世界工业史上的奇迹”的豪华客轮泰坦尼克号开始了自己的处女航，从英国的南安普顿出发驶往美国纽约。富家少女罗丝（凯特•温丝莱特）与母亲及未婚夫卡尔坐上了头等舱；另一边，放荡不羁的少年画家杰克（莱昂纳多·迪卡普里奥）也在码头的一场赌博中赢得了下等舱的船票。
+　　罗丝厌倦了上流社会虚伪的生活，不愿嫁给卡尔，打算投海自尽，被杰克救起。很快，美丽活泼的罗丝与英俊开朗的杰克相爱，杰克带罗丝参加下等舱的舞会、为她画像，二人的感情逐渐升温。
+　　1912年4月14日，星期天晚上，一个风平浪静的夜晚。泰坦尼克号撞上了冰山，“永不沉没的”泰坦尼克号面临沉船的命运，罗丝和杰克刚萌芽的爱情也将经历生死的考验。',
+	'1998-04-03',
+	'004.jpg',
+	'剧情 / 爱情 / 灾难',
+	'美国 / 墨西哥',
+	'导演: 詹姆斯·卡梅隆
+编剧: 詹姆斯·卡梅隆
+主演: 莱昂纳多·迪卡普里奥 / 凯特·温斯莱特 ',
+	'1',
+	'0',
+	'4.5'
+);
+
+INSERT INTO `movies` (`movie_id`, `title`, `description`, `release_date`, `cover_image`, `type`, `region`, `creators`,`vip`, `price`,`stars`) VALUES (
+	100005,
+	'千与千寻',
+	'	千寻和爸爸妈妈一同驱车前往新家，在郊外的小路上不慎进入了神秘的隧道——他们去到了另外一个诡异世界—一个中世纪的小镇。远处飘来食物的香味，爸爸妈妈大快朵颐，孰料之后变成了猪！这时小镇上渐渐来了许多样子古怪、半透明的人。
+　　千寻仓皇逃出，一个叫小白的人救了他，喂了她阻止身体消 失的药，并且告诉她怎样去找锅炉爷爷以及汤婆婆，而且必须获得一份工作才能不被魔法变成别的东西。
+　　千寻在小白的帮助下幸运地获得了一份在浴池打杂的工作。渐渐她不再被那些怪模怪样的人吓倒，并从小玲那儿知道了小白是凶恶的汤婆婆的弟子。
+　　一次，千寻发现小白被一群白色飞舞的纸人打伤，为了救受伤的小白，她用河神送给她的药丸驱出了小白身体内的封印以及守封印的小妖精，但小白还是没有醒过来。
+　　为了救小白，千寻又踏上了她的冒险之旅。',
+	'2001-07-20',
+	'005.jpg',
+	'剧情 / 动画 / 奇幻',
+	'日本',
+	'导演: 宫崎骏
+编剧: 宫崎骏
+主演: 柊瑠美 / 入野自由 / 夏木真理 ',
+	'0',
+	'6',
+	'4'
+);
+
+INSERT INTO `movies` (`movie_id`, `title`, `description`, `release_date`, `cover_image`, `type`, `region`, `creators`,`vip`, `price`,`stars`) VALUES (
+	100006,
+	'这个杀手不太冷',
+	'	里昂（让·雷诺饰）是名孤独的职业杀手，受人雇佣。一天，邻居家小姑娘马蒂尔达（纳塔丽·波特曼饰)敲开他的房门，要求在他那里暂避杀身之祸。原来邻居家的主人是警方缉毒组的眼线，只因贪污了一小包毒品而遭恶警（加里·奥德曼饰）杀害全家的惩罚。马蒂尔达得到里昂的留救，幸免于难，并留在里昂那里。里昂教小女孩使枪，她教里昂法文，两人关系日趋亲密，相处融洽。
+　　女孩想着去报仇，反倒被抓，里昂及时赶到，将女孩救回。混杂着哀怨情仇的正邪之战渐次升级，更大的冲突在所难免……',
+	'1994-09-14',
+	'006.jpg',
+	'剧情 / 动作 / 犯罪',
+	'法国 / 美国',
+	'导演: 吕克·贝松
+编剧: 吕克·贝松
+主演: 让·雷诺 / 娜塔莉·波特曼 / 加里·奥德曼 ',
+	'1',
+	'0',
+	'4'
+);
+
+INSERT INTO `movies` (`movie_id`, `title`, `description`, `release_date`, `cover_image`, `type`, `region`, `creators`,`vip`, `price`,`stars`) VALUES (
+	100007,
+	'美丽人生',
+	'	犹太青年圭多（罗伯托·贝尼尼）邂逅美丽的女教师多拉（尼可莱塔·布拉斯基），他彬彬有礼的向多拉鞠躬：“早安！公主！”。历经诸多令人啼笑皆非的周折后，天遂人愿，两人幸福美满的生活在一起。
+　　然而好景不长，法西斯政权下，圭多和儿子被强行送往犹太人集中营。多拉虽没有犹太血统，毅然同行，与丈夫儿子分开关押在一个集中营里。聪明乐天的圭多哄骗儿子这只是一场游戏，奖品就是一辆大坦克，儿子快乐、天真的生活在纳粹的阴霾之中。尽管集中营的生活艰苦寂寞，圭多仍然带给他人很多快乐，他还趁机在纳粹的广播里问候妻子：“早安！公主！”
+　　法西斯政权即将倾覆，纳粹的集中营很快就要接受最后的清理，圭多编给儿子的游戏该怎么结束？他们一家能否平安的度过这黑暗的年代呢？',
+	'1997-12-20',
+	'007.jpg',
+	'剧情 / 喜剧 / 爱情 / 战争',
+	'意大利',
+	'导演: 罗伯托·贝尼尼
+编剧: 温琴佐·切拉米 / 罗伯托·贝尼尼
+主演: 罗伯托·贝尼尼 / 尼可莱塔·布拉斯基  ',
+	'1',
+	'0',
+	'4'
+);
+
+INSERT INTO `movies` (`movie_id`, `title`, `description`, `release_date`, `cover_image`, `type`, `region`, `creators`,`vip`, `price`,`stars`) VALUES (
+	100008,
+	'星际穿越',
+	'	近未来的地球黄沙遍野，小麦、秋葵等基础农作物相继因枯萎病灭绝，人类不再像从前那样仰望星空，放纵想象力和灵感的迸发，而是每日在沙尘暴的肆虐下倒数着所剩不多的光景。在家务农的前NASA宇航员库珀（马修·麦康纳 Matthew McConaughey 饰）接连在女儿墨菲（麦肯吉·弗依 Mackenzie Foy 饰）的书房发现奇怪的重力场现象，随即得知在某个未知区域内前NASA成员仍秘密进行一个拯救人类的计划。多年以前土星附近出现神秘虫洞，NASA借机将数名宇航员派遣到遥远的星系寻找适合居住的星球。在布兰德教授（迈克尔·凯恩 Michael Caine 饰）的劝说下，库珀忍痛告别了女儿，和其他三名专家教授女儿艾米莉亚·布兰德（安妮·海瑟薇 Anne Hathaway 饰）、罗米利（大卫·吉雅西 David Gyasi 饰）、多伊尔（韦斯·本特利 Wes Bentley 饰）搭乘宇宙飞船前往目前已知的最有希望的三颗星球考察。
+　　他们穿越遥远的星系银河，感受了一小时七年光阴的沧海桑田，窥见了未知星球和黑洞的壮伟与神秘。在浩瀚宇宙的绝望而孤独角落，总有一份超越了时空的笃定情怀将他们紧紧相连……',
+	'2014-11-12',
+	'008.jpg',
+	'剧情 / 科幻 / 冒险',
+	'美国 / 英国 / 加拿大',
+	'导演: 克里斯托弗·诺兰
+编剧: 乔纳森·诺兰 / 克里斯托弗·诺兰
+主演: 马修·麦康纳 / 安妮·海瑟薇 ',
+	'0',
+	'12',
+	'4'
+);
+
+INSERT INTO `movies` (`movie_id`, `title`, `description`, `release_date`, `cover_image`, `type`, `region`, `creators`,`vip`, `price`,`stars`) VALUES (
+	100009,
+	'盗梦空间',
+	'	道姆·柯布（莱昂纳多·迪卡普里奥 Leonardo DiCaprio 饰）与同事阿瑟（约瑟夫·戈登-莱维特 Joseph Gordon-Levitt 饰）和纳什（卢卡斯·哈斯 Lukas Haas 饰）在一次针对日本能源大亨齐藤（渡边谦 饰）的盗梦行动中失败，反被齐藤利用。齐藤威逼利诱因遭通缉而流亡海外的柯布帮他拆分他竞争对手的公司，采取极端措施在其唯一继承人罗伯特·费希尔（希里安·墨菲 Cillian Murphy 饰）的深层潜意识中种下放弃家族公司、自立门户的想法。为了重返美国，柯布偷偷求助于岳父迈尔斯（迈克尔·凯恩 Michael Caine 饰），吸收了年轻的梦境设计师艾里阿德妮（艾伦·佩吉 Ellen Page 饰）、梦境演员艾姆斯（汤姆·哈迪 Tom Hardy 饰）和药剂师约瑟夫（迪利普·劳 Dileep Rao 饰）加入行动。在一层层递进的梦境中，柯布不仅要对付费希尔潜意识的本能反抗，还必须直面已逝妻子梅尔（玛丽昂·歌迪亚 Marion Cotillard 饰）的处处破坏，实际情况远比预想危险得多……',
+	'2010-09-01',
+	'009.jpg',
+	'剧情 / 科幻 / 悬疑 / 冒险',
+	'美国 / 英国',
+	'导演: 克里斯托弗·诺兰
+编剧: 克里斯托弗·诺兰
+主演: 莱昂纳多 / 约瑟夫·高登-莱维特 ',
+	'0',
+	'6',
+	'4'
+);
+
+
